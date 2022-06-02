@@ -39,7 +39,6 @@ public class PersonVersioningController {
 	@GetMapping(value = "/person/header", headers = "X-API-VERSION=2")
 	public PersonV2 headerPersonV2() {
 		return new PersonV2(new Name("Roshan", "Bhavsar"));
-
 	}
 
 	// Produce Versioning OR Accept Versioning OR Media Type Versioning
@@ -52,8 +51,6 @@ public class PersonVersioningController {
 	@GetMapping(value = "/person/produces", produces = "application/vnd.company.app-v2+json")
 	public PersonV2 producesPersonV2() {
 		return new PersonV2(new Name("Roshan", "Bhavsar"));
-		
-
 	}
 
 }
