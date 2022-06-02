@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.5.RELEASE</version>
+		<version>2.5.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.roshan.rest.webservices</groupId>
@@ -14,11 +14,91 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>restful-web-services</name>
 	<description>Demo project for Spring Boot</description>
+	
 	<properties>
-		<java.version>8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
+	
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<!-- START AND STOP THE APPLICATION AFTER MAKING THE CHANGE! -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-rest-hal-explorer</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-hateoas</artifactId>
+		</dependency>
+
+<!-- 		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
+		
+		<dependency>
+		  <groupId>io.springfox</groupId>
+		  <artifactId>springfox-boot-starter</artifactId>
+		  <version>3.0.0</version>
+		</dependency>
+ -->
+
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.5.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	
+<!-- 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -28,41 +108,48 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!-- Validation for Rest API -->
+		Validation for Rest API
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 
-		<!-- HATEOAS hypermedia as the engine of Application State -->
+		HATEOAS hypermedia as the engine of Application State
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-hateoas</artifactId>
 		</dependency>
 
-		<!--XML response -->
-		<!-- <dependency>
+		XML response
+		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
-		</dependency> -->
+		</dependency>
 
-		<!--Swagger UI -->
+		Swagger UI
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>1.5.9</version>
 		</dependency>
 
-		<!--Spring Actuator : Monitoring Health of application -->
+		Spring Actuator : Monitoring Health of application
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 		
-		<!--HAL Explorer help to explore the APIs in easy ways-->
+		HAL Explorer help to explore the APIs in easy ways
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-rest-hal-explorer</artifactId>			
+		</dependency>
+		
+		
+		Spring Security
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
 		<dependency>
@@ -92,13 +179,14 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>4.1.0.Final</version>
 		</dependency>
-		<!-- MySQL Connector -->
+		MySQL Connector
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.6</version>
 		</dependency>
-	</dependencies>
+			
+	</dependencies> -->
 
 	<build>
 		<plugins>
