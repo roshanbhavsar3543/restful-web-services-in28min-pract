@@ -2,20 +2,35 @@ package com.roshan.rest.webservices.restfulwebservices.rufftest;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Past;
 
+@Entity
+//@Table(name = "USER_DETAILS")
 public class User {
 	
-	
+	@Id
+	@GeneratedValue
 	private Integer id;
 	
-	@Min(value =2, message = "Name Should have atleast 2 characters.")
+	
+	//@Min(value =2, message = "Name Should have atleast 2 characters.")
 	private String name;
 	
 	@Past(message = "The Birth Date should be in Past")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date birthDate;
 	
+	public User() {
+		super();
+		
+	}
 
 	public User(Integer id, String name, Date birthDate) {
 		super();
