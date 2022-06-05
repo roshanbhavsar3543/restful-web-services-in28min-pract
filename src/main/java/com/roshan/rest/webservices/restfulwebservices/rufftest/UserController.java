@@ -30,6 +30,7 @@ public class UserController {
 	@GetMapping(path = "/users")
 	public List<User> retriveAllUser() {
 		return userDao.findAll();
+	//get all list of users
 	}
 
 	@GetMapping(path = "/users/{id}", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
