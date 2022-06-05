@@ -10,13 +10,10 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan({"com.roshan.rest.webservices.restfulwebservices.rufftest"
 	,"com.roshan.rest.webservices.restfulwebservices.jpa"})
 @EntityScan({"com.roshan.rest.webservices.restfulwebservices.rufftest","com.roshan.rest.webservices.restfulwebservices.rufftest.jpa"})
-//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class RestfulWebServicesApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RestfulWebServicesApplication.class, args);
-		//Roshan's Changes
-		//System.out.println("git");
 	}
 
 }
