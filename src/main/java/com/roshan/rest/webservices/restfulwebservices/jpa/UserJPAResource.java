@@ -99,6 +99,7 @@ public class UserJPAResource {
 		userPostRepository.save(userPost);
 		
 		
+		
 		userRepository.save(user);
 		// Below code is for adding location header in Response
 				URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(userPost.getId())
