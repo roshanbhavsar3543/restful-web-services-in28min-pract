@@ -16,7 +16,7 @@ public class RestfulWebServicesApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RestfulWebServicesApplication.class, args);
 		//Roshan's Changes
-		System.out.println("git");
+		//System.out.println("git");
 	}
 
 }
