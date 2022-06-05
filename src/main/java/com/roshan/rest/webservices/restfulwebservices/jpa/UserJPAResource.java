@@ -7,7 +7,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.MediaType;
@@ -22,6 +22,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.roshan.rest.webservices.restfulwebservices.rufftest.User;
 import com.roshan.rest.webservices.restfulwebservices.rufftest.UserDao;
+import com.roshan.rest.webservices.restfulwebservices.rufftest.UserPost;
 import com.roshan.rest.webservices.restfulwebservices.rufftest.exception.UserNotFoundException;
 
 @RestController
@@ -32,6 +33,9 @@ public class UserJPAResource {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private UserPostRepository userPostRepository;
 
 	@GetMapping(path = "/jpa/users")
 	public List<User> retriveAllUser() {
@@ -73,5 +77,45 @@ public class UserJPAResource {
 	public void deleteUser(@PathVariable int id) {
 		userRepository.deleteById(id);		
 	}
+	
+	
+	@GetMapping(path = "/jpa/users/{id}/posts")
+	public List<UserPost> retriveAllPosts(@PathVariable int id){
+		Optional<User> userOption =  userRepository.findById(id);		
+		if(!userOption.isPresent()) {
+			throw new UserNotFoundException("User with id - " + id + " , not found.");
+		}		
+		return userOption.get().getPosts();
+	}
+	
+	@PostMapping(path = "/jpa/users/{id}/posts")
+	public ResponseEntity<User> savePost(@PathVariable int id, @Valid @RequestBody UserPost userPost) {
+		Optional<User> userOption =  userRepository.findById(id);		
+		if(!userOption.isPresent()) {
+			throw new UserNotFoundException("User with id - " + id + " , not found.");
+		}
+		User user = userOption.get();
+		userPost.setUser(user);
+		userPostRepository.save(userPost);
+		
+		
+		userRepository.save(user);
+		// Below code is for adding location header in Response
+				URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(userPost.getId())
+						.toUri();
+		return ResponseEntity.created(location).build();
+	}
+	
+	
+	@GetMapping(path = "/jpa/users/{id}/posts/{postId}")
+	public UserPost retrivePostForUser(@PathVariable int id,@PathVariable int postId){
+		Optional<UserPost> userOption =  userPostRepository.findById(postId);		
+		if(!userOption.isPresent()) {
+			throw new UserNotFoundException("User with id - " + id + " , not found.");
+		}		
+		return userOption.get();
+	}
+	
+	
 
 }

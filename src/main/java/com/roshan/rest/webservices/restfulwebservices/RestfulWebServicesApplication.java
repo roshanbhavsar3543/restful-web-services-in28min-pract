@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan({"com.roshan.rest.webservices.restfulwebservices.rufftest"
 	,"com.roshan.rest.webservices.restfulwebservices.jpa"})
-@EntityScan("com.roshan.rest.webservices.restfulwebservices.rufftest")
+@EntityScan({"com.roshan.rest.webservices.restfulwebservices.rufftest","com.roshan.rest.webservices.restfulwebservices.rufftest.jpa"})
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class RestfulWebServicesApplication {
 
